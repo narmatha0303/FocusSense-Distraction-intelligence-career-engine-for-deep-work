@@ -122,4 +122,4 @@ All data is stored locally using `chrome.storage.local`. Nothing is sent to any 
 
 ## License
 
-MIT © Narmatha 2025
+MIT © Narmatha 2026
