@@ -100,51 +100,48 @@ The extension converts raw browsing data into meaningful insights:
 
 ## 🏗️ Project Structure  
 
-```text
+ 
+---
 focussense/
-├── manifest.json
-├── background.js
+├── manifest.json          # Extension config (MV3)
+├── background.js          # Service worker — core logic
 ├── dashboard/
-│   ├── dashboard.html
-│   └── dashboard.js
+│   ├── dashboard.html     # Main analytics UI
+│   └── dashboard.js       # Dashboard rendering & charts
 ├── newtab/
-│   ├── newtab.html
-│   └── newtab.js
+│   ├── newtab.html        # New tab override
+│   └── newtab.js          # Daily question bank (30 Q&As)
 ├── popup/
-│   └── popup.js
-└── chart.js
-⚡ Installation
-Clone the repository
-git clone https://github.com/YOUR_USERNAME/focussense.git
-Open Chrome and go to:
-chrome://extensions/
-Enable Developer Mode
-Click Load Unpacked
-Select the project folder
-▶️ How to Use
-Open the extension
-Start a focus session
-Browse normally — activity is tracked automatically
-View insights in the dashboard
-Use the new tab page for daily learning
-🎯 Business Value
-Improves productivity through awareness
-Encourages better focus habits
-Demonstrates real-world data tracking and analytics
-🚀 Future Enhancements
-Focus score and streak tracking
-Data export (CSV)
-Pomodoro timer integration
-Expanded interview question bank
-🔐 Privacy
-All data is stored locally using chrome.storage.local
-No external servers or APIs
-No user tracking
-🤝 Contributing
+│   └── popup.js           # Extension popup
+└── chart.js               # Chart.js (bundled)
+---
+ ## 📸 Screenshots  
 
-Contributions are welcome!
-Fork the repository and submit a pull request
+### 📊 Dashboard  
+![Dashboard](assets/dashboard.png)
 
-### ⭐ Support
+### 🔒 Focus Mode Popup  
+![Popup](assets/popup.png)
+
+### 🚀 New Tab Career Page  
+![New Tab](assets/newtab.png)
+---
+ 
+## Privacy
+ 
+All data is stored locally using `chrome.storage.local`. Nothing is sent to any server. The extension requires broad `<all_urls>` host permissions only to enable the content capture shortcut on any webpage.
+ 
+---
+ 
+## Roadmap
+ 
+- [ ] Custom distraction site list (user-defined)
+- [ ] Weekly focus score and streaks
+- [ ] Export data as CSV
+- [ ] Pomodoro timer integration
+- [ ] Expanded question bank (Python, Statistics, Product Sense)
+---
+ 
+
 
 If you found this project useful, consider giving it a ⭐ on GitHub
