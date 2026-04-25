@@ -1,107 +1,93 @@
-# 🚀 FocusSense — Distraction Intelligence + Career Engine
+# FocusSense — Distraction Intelligence + Career Engine
 
-> A Chrome extension that tracks distraction patterns, enforces focus, and transforms browsing behavior into actionable insights.
+![Manifest V3](https://img.shields.io/badge/Manifest-V3-blue?style=flat-square)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+![No Server](https://img.shields.io/badge/Data-100%25%20Local-brightgreen?style=flat-square)
 
----
-
-## 🚀 Overview  
-
-FocusSense is a productivity-focused Chrome extension designed to help users reduce distractions and improve focus using data.
-
-Unlike traditional blockers, it combines:
-- 🔒 Real-time distraction control  
-- ⏱ Behavioral tracking  
-- 📊 Data-driven insights  
-- 🎯 Career-focused learning  
+> A Chrome extension that tracks your distraction patterns, blocks time-wasters during deep work, and turns every new tab into a career growth moment.
 
 ---
 
-## 🧠 Problem  
+## Screenshots
 
-Users often struggle with:
-- Lack of awareness of time spent on distracting websites  
-- No measurable productivity insights  
-- Tools that rely only on self-discipline  
-
-**Result:** Reduced focus and inefficient work habits  
+### New Tab — Focus Greeter
+![New Tab Page](assets/screenshot-newtab.png)
+*Personalized greeter with live clock, daily focus intention, and quick access to the career question of the day.*
 
 ---
 
-## 💡 Solution  
-
-FocusSense provides an integrated system that:
-- Tracks browsing behavior  
-- Identifies distraction patterns  
-- Enforces focus automatically  
-- Converts idle browsing into learning opportunities  
+### Operational Intelligence Dashboard
+![Analytics Dashboard](assets/screenshot-analytics.png)
+*7-day distraction trend, hourly heatmap, productivity score, site distribution — all powered by locally stored data.*
 
 ---
 
-## ⚙️ Tech Stack  
-
-- Chrome Extension (Manifest V3)  
-- JavaScript, HTML, CSS  
-- Chrome APIs (`storage`, `scripting`, `idle`)  
-- Chart.js (analytics dashboard)  
-- AntiGravity Chrome Extension Framework  
+### Focus Mode + Deep Work Session
+![Focus Dashboard](assets/screenshot-focus-dashboard.png)
+*Pomodoro-style deep work timer, site time tracker, daily data challenge with answer reveal, toolkit settings, and the Analyst Impact Report.*
 
 ---
 
-## 🔑 Core Features  
-
-### 🔒 Distraction Logger  
-- Tracks visits to distracting websites  
-- Uses cooldown logic to prevent duplicate logging  
-- Stores recent activity locally  
+### Captured Insights + Reading List
+![Insights and Reading List](assets/screenshot-insights.png)
+*All your `Ctrl+Shift+S` captures in one place, alongside a personal reading list for saving URLs.*
 
 ---
 
-### 🎯 Focus Mode  
-- Automatically closes distracting tabs  
-- Eliminates reliance on willpower  
+## What It Does
+
+Most productivity tools just block sites. FocusSense goes further — it tracks *why* you get distracted, gives you data about your habits, and uses your idle browser time to sharpen your skills.
+
+**Five core modules in one extension:**
+
+### 1. Distraction Logger
+Automatically detects and logs visits to 15+ distracting sites (YouTube, Reddit, Instagram, etc.) with a 60-second cooldown to avoid duplicate entries. Stores up to 7 days of history locally — no server, no tracking.
+
+### 2. Focus Mode
+Activate a hard focus session and the extension will automatically close any distracting tab the moment it loads — no willpower required.
+
+### 3. Insight Capture (`Ctrl+Shift+S` / `Cmd+Shift+S`)
+Highlight any text on any webpage and press the shortcut to save it as an insight. Falls back to the page title if nothing is selected. Keeps your 50 most recent captures accessible from the dashboard.
+
+### 4. Tab Limiter
+Set a maximum number of open tabs. When you exceed the limit, the newest tab is closed automatically — keeping your workspace clean and your focus intact.
+
+### 5. Site Time Tracker
+Tracks how many seconds you spend on each domain throughout the day. Measures active window focus, handles idle detection, and respects multi-window workflows.
+
+### Bonus: Career New Tab
+Every new tab surfaces a daily interview question from a curated bank of 30 questions across **SQL**, **Analytics**, and **Case Studies** — with a full answer on demand. Perfect for data analysts and PMs in job-search mode.
 
 ---
 
-### ✍️ Insight Capture  
-- Save highlighted text from any webpage  
-- Stores recent insights for later review  
+## Tech Stack
+
+- **Manifest V3** Chrome Extension
+- **Vanilla JS** — no framework dependencies
+- **`chrome.storage.local`** — all data stays on your device
+- **`chrome.scripting`** — for content capture and focus mode enforcement
+- **`chrome.idle`** — for accurate time tracking
+- **Chart.js** — for the analytics dashboard
 
 ---
 
-### 🧠 Tab Limiter  
-- Restricts the number of open tabs  
-- Helps maintain a clean and focused workspace  
+## Installation (Developer Mode)
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/focussense.git
+   ```
+2. Open Chrome and go to `chrome://extensions`
+3. Enable **Developer Mode** (top right toggle)
+4. Click **Load unpacked** and select the project folder
+5. Pin the FocusSense icon to your toolbar
 
 ---
 
-### ⏱ Site Time Tracker  
-- Tracks time spent per domain  
-- Handles idle detection and tab switching  
+## Project Structure
 
----
-
-### 🚀 Career New Tab  
-- Displays daily interview questions  
-- Helps users improve skills during idle browsing time  
-
----
-
-## 📊 Analytics & Insights  
-
-The extension converts raw browsing data into meaningful insights:
-
-- Time spent per website  
-- Daily usage patterns  
-- Focus vs distraction behavior  
-
-👉 Enables users to make **data-driven productivity improvements**
-
----
-
-## 🏗️ Project Structure  
-
- 
----
+```
 focussense/
 ├── manifest.json          # Extension config (MV3)
 ├── background.js          # Service worker — core logic
@@ -113,35 +99,28 @@ focussense/
 │   └── newtab.js          # Daily question bank (30 Q&As)
 ├── popup/
 │   └── popup.js           # Extension popup
+├── assets/                # Screenshots
 └── chart.js               # Chart.js (bundled)
+```
+
 ---
- ## 📸 Screenshots  
 
-### 📊 Dashboard  
-![Dashboard](assets/dashboard.png)
-
-### 🔒 Focus Mode Popup  
-![Popup](assets/popup.png)
-
-### 🚀 New Tab Career Page  
-![New Tab](assets/newtab.png)
----
- 
 ## Privacy
- 
+
 All data is stored locally using `chrome.storage.local`. Nothing is sent to any server. The extension requires broad `<all_urls>` host permissions only to enable the content capture shortcut on any webpage.
- 
+
 ---
- 
+
 ## Roadmap
- 
+
 - [ ] Custom distraction site list (user-defined)
 - [ ] Weekly focus score and streaks
 - [ ] Export data as CSV
 - [ ] Pomodoro timer integration
 - [ ] Expanded question bank (Python, Statistics, Product Sense)
+
 ---
- 
 
+## License
 
-If you found this project useful, consider giving it a ⭐ on GitHub
+MIT © YOUR_NAME 2025
