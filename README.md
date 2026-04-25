@@ -1,91 +1,150 @@
-# FocusSense — Distraction Intelligence + Career Engine
+# 🚀 FocusSense — Distraction Intelligence + Career Engine
 
-> A Chrome extension that tracks your distraction patterns, blocks time-wasters during deep work, and turns every new tab into a career growth moment.
-
----
-
-## What It Does
-
-Most productivity tools just block sites. FocusSense goes further — it tracks *why* you get distracted, gives you data about your habits, and uses your idle browser time to sharpen your skills.
-
-**Five core modules in one extension:**
-
-### 1. Distraction Logger
-Automatically detects and logs visits to 15+ distracting sites (YouTube, Reddit, Instagram, etc.) with a 60-second cooldown to avoid duplicate entries. Stores up to 7 days of history locally — no server, no tracking.
-
-### 2. Focus Mode
-Activate a hard focus session and the extension will automatically close any distracting tab the moment it loads — no willpower required.
-
-### 3. Insight Capture (`Ctrl+Shift+S` / `Cmd+Shift+S`)
-Highlight any text on any webpage and press the shortcut to save it as an insight. Falls back to the page title if nothing is selected. Keeps your 50 most recent captures accessible from the dashboard.
-
-### 4. Tab Limiter
-Set a maximum number of open tabs. When you exceed the limit, the newest tab is closed automatically — keeping your workspace clean and your focus intact.
-
-### 5. Site Time Tracker
-Tracks how many seconds you spend on each domain throughout the day. Measures active window focus, handles idle detection, and respects multi-window workflows.
-
-### Bonus: Career New Tab
-Every new tab surfaces a daily interview question from a curated bank of 30 questions across **SQL**, **Analytics**, and **Case Studies** — with a full answer on demand. Perfect for data analysts and PMs in job-search mode.
+> A Chrome extension that tracks distraction patterns, enforces focus, and transforms browsing behavior into actionable insights.
 
 ---
 
-## Tech Stack
+## 🚀 Overview  
 
-- **Manifest V3** Chrome Extension
-- **Vanilla JS** — no framework dependencies
-- **`chrome.storage.local`** — all data stays on your device
-- **`chrome.scripting`** — for content capture and focus mode enforcement
-- **`chrome.idle`** — for accurate time tracking
-- **Chart.js** — for the analytics dashboard
+FocusSense is a productivity-focused Chrome extension designed to help users reduce distractions and improve focus using data.
 
----
-
-## Installation (Developer Mode)
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/focussense.git
-   ```
-2. Open Chrome and go to `chrome://extensions`
-3. Enable **Developer Mode** (top right toggle)
-4. Click **Load unpacked** and select the project folder
-5. Pin the FocusSense icon to your toolbar
+Unlike traditional blockers, it combines:
+- 🔒 Real-time distraction control  
+- ⏱ Behavioral tracking  
+- 📊 Data-driven insights  
+- 🎯 Career-focused learning  
 
 ---
 
-## Project Structure
+## 🧠 Problem  
 
-```
+Users often struggle with:
+- Lack of awareness of time spent on distracting websites  
+- No measurable productivity insights  
+- Tools that rely only on self-discipline  
+
+**Result:** Reduced focus and inefficient work habits  
+
+---
+
+## 💡 Solution  
+
+FocusSense provides an integrated system that:
+- Tracks browsing behavior  
+- Identifies distraction patterns  
+- Enforces focus automatically  
+- Converts idle browsing into learning opportunities  
+
+---
+
+## ⚙️ Tech Stack  
+
+- Chrome Extension (Manifest V3)  
+- JavaScript, HTML, CSS  
+- Chrome APIs (`storage`, `scripting`, `idle`)  
+- Chart.js (analytics dashboard)  
+- AntiGravity Chrome Extension Framework  
+
+---
+
+## 🔑 Core Features  
+
+### 🔒 Distraction Logger  
+- Tracks visits to distracting websites  
+- Uses cooldown logic to prevent duplicate logging  
+- Stores recent activity locally  
+
+---
+
+### 🎯 Focus Mode  
+- Automatically closes distracting tabs  
+- Eliminates reliance on willpower  
+
+---
+
+### ✍️ Insight Capture  
+- Save highlighted text from any webpage  
+- Stores recent insights for later review  
+
+---
+
+### 🧠 Tab Limiter  
+- Restricts the number of open tabs  
+- Helps maintain a clean and focused workspace  
+
+---
+
+### ⏱ Site Time Tracker  
+- Tracks time spent per domain  
+- Handles idle detection and tab switching  
+
+---
+
+### 🚀 Career New Tab  
+- Displays daily interview questions  
+- Helps users improve skills during idle browsing time  
+
+---
+
+## 📊 Analytics & Insights  
+
+The extension converts raw browsing data into meaningful insights:
+
+- Time spent per website  
+- Daily usage patterns  
+- Focus vs distraction behavior  
+
+👉 Enables users to make **data-driven productivity improvements**
+
+---
+
+## 🏗️ Project Structure  
+
+```text
 focussense/
-├── manifest.json          # Extension config (MV3)
-├── background.js          # Service worker — core logic
+├── manifest.json
+├── background.js
 ├── dashboard/
-│   ├── dashboard.html     # Main analytics UI
-│   └── dashboard.js       # Dashboard rendering & charts
+│   ├── dashboard.html
+│   └── dashboard.js
 ├── newtab/
-│   ├── newtab.html        # New tab override
-│   └── newtab.js          # Daily question bank (30 Q&As)
+│   ├── newtab.html
+│   └── newtab.js
 ├── popup/
-│   └── popup.js           # Extension popup
-└── chart.js               # Chart.js (bundled)
-```
+│   └── popup.js
+└── chart.js
+⚡ Installation
+Clone the repository
+git clone https://github.com/YOUR_USERNAME/focussense.git
+Open Chrome and go to:
+chrome://extensions/
+Enable Developer Mode
+Click Load Unpacked
+Select the project folder
+▶️ How to Use
+Open the extension
+Start a focus session
+Browse normally — activity is tracked automatically
+View insights in the dashboard
+Use the new tab page for daily learning
+🎯 Business Value
+Improves productivity through awareness
+Encourages better focus habits
+Demonstrates real-world data tracking and analytics
+🚀 Future Enhancements
+Focus score and streak tracking
+Data export (CSV)
+Pomodoro timer integration
+Expanded interview question bank
+🔐 Privacy
+All data is stored locally using chrome.storage.local
+No external servers or APIs
+No user tracking
+🤝 Contributing
 
----
+Contributions are welcome!
+Fork the repository and submit a pull request
 
-## Privacy
+### ⭐ Support
 
-All data is stored locally using `chrome.storage.local`. Nothing is sent to any server. The extension requires broad `<all_urls>` host permissions only to enable the content capture shortcut on any webpage.
-
----
-
-## Roadmap
-
-- [ ] Custom distraction site list (user-defined)
-- [ ] Weekly focus score and streaks
-- [ ] Export data as CSV
-- [ ] Pomodoro timer integration
-- [ ] Expanded question bank (Python, Statistics, Product Sense)
-
----
-
+If you found this project useful, consider giving it a ⭐ on GitHub
