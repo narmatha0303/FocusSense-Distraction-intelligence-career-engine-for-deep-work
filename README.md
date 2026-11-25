@@ -1,125 +1,69 @@
-# FocusSense — Distraction Intelligence + Career Engine
 
-![Manifest V3](https://img.shields.io/badge/Manifest-V3-blue?style=flat-square)
-![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
-![No Server](https://img.shields.io/badge/Data-100%25%20Local-brightgreen?style=flat-square)
+# FocusSense — Focus Tracking and Career Practice
 
-> A Chrome extension that tracks your distraction patterns, blocks time-wasters during deep work, and turns every new tab into a career growth moment.
+A Manifest V3 Chrome extension project combining distraction tracking, focus sessions, saved insights and daily interview practice. The extension source is packaged inside [AI pro assignment.zip](AI%20pro%20assignment.zip).
 
----
+## Features
+
+- Distraction logging and domain-level time tracking.
+- Focus mode and tab-limit controls.
+- A dashboard for browsing activity and focus patterns.
+- Saved text snippets and a reading list.
+- A new-tab page with SQL, analytics and case-study questions.
+
+These describe the project implementation, not a measured improvement in a user’s productivity. Browser activity can show when distractions happen; it cannot establish why someone was distracted.
+
+## Install locally
+
+1. Download [the source ZIP](AI%20pro%20assignment.zip), or clone this repository and find that ZIP.
+2. Extract it. The extension folder is `assignment/focussense/`.
+3. Open `chrome://extensions` in Chrome and enable Developer mode.
+4. Choose **Load unpacked** and select the extracted `assignment/focussense/` folder containing `manifest.json`. Do not select the repository root or the ZIP itself.
+5. Open a new tab to view the extension.
+
+The ZIP also contains `assignment/FocusSense_PRD.md` and `assignment/tasks.md`. Inspect the source before installing. No packaged extension-store release is linked here.
+
+## Source structure inside the ZIP
+
+```text
+assignment/
+├── FocusSense_PRD.md
+├── tasks.md
+└── focussense/
+    ├── manifest.json
+    ├── background.js
+    ├── contentScript.js
+    ├── dashboard/
+    ├── data/questions.js
+    ├── libs/chart.js
+    ├── newtab/
+    └── popup/
+```
 
 ## Screenshots
 
-### New Tab — Focus Greeter
-![New Tab Page](https://raw.githubusercontent.com/narmatha0303/FocusSense-Distraction-intelligence-career-engine-for-deep-work/main/screenshot-newtab.png)
-*Personalized greeter with live clock, daily focus intention, and quick access to the career question of the day.*
+### New-tab page
+![New-tab page](screenshot-newtab.png)
 
----
+### Analytics
+![Analytics dashboard](screenshot-analytics.png)
 
-### Operational Intelligence Dashboard
-![Analytics Dashboard](https://raw.githubusercontent.com/narmatha0303/FocusSense-Distraction-intelligence-career-engine-for-deep-work/main/screenshot-analytics.png)
-*7-day distraction trend, hourly heatmap, productivity score, site distribution — all powered by locally stored data.*
+### Focus dashboard
+![Focus dashboard](screenshot-focus-dashboard.png)
 
----
+### Saved insights
+![Saved insights](screenshot-insights.png)
 
-### Focus Mode + Deep Work Session
-![Focus Dashboard](https://raw.githubusercontent.com/narmatha0303/FocusSense-Distraction-intelligence-career-engine-for-deep-work/main/screenshot-focus-dashboard.png)
-*Pomodoro-style deep work timer, site time tracker, daily data challenge with answer reveal, toolkit settings, and the Analyst Impact Report.*
+## Permissions and storage
 
----
+The manifest requests `storage`, `tabs`, `activeTab`, `scripting`, `idle`, `alarms`, `unlimitedStorage` and `<all_urls>` host access. Review these permissions when loading it. The project uses `chrome.storage.local` for extension data. A complete runtime privacy or security audit is not included in this repository.
 
-### Captured Insights + Reading List
-![Insights and Reading List](https://raw.githubusercontent.com/narmatha0303/FocusSense-Distraction-intelligence-career-engine-for-deep-work/main/screenshot-insights.png)
-*All your `Ctrl+Shift+S` captures in one place, alongside a personal reading list for saving URLs.*
+## Tools
 
----
+JavaScript · HTML/CSS · Chrome Manifest V3 · Chart.js
 
-## What It Does
+## Project status
 
-Most productivity tools just block sites. FocusSense goes further — it tracks *why* you get distracted, gives you data about your habits, and uses your idle browser time to sharpen your skills.
+The source archive and screenshots are available. Source inspection confirms the manifest and folder structure above; installation and browser behaviour were not retested during this documentation update. No standalone LICENSE file is currently present in this repository.
 
-**Five core modules in one extension:**
-
-### 1. Distraction Logger
-Automatically detects and logs visits to 15+ distracting sites (YouTube, Reddit, Instagram, etc.) with a 60-second cooldown to avoid duplicate entries. Stores up to 7 days of history locally — no server, no tracking.
-
-### 2. Focus Mode
-Activate a hard focus session and the extension will automatically close any distracting tab the moment it loads — no willpower required.
-
-### 3. Insight Capture (`Ctrl+Shift+S` / `Cmd+Shift+S`)
-Highlight any text on any webpage and press the shortcut to save it as an insight. Falls back to the page title if nothing is selected. Keeps your 50 most recent captures accessible from the dashboard.
-
-### 4. Tab Limiter
-Set a maximum number of open tabs. When you exceed the limit, the newest tab is closed automatically — keeping your workspace clean and your focus intact.
-
-### 5. Site Time Tracker
-Tracks how many seconds you spend on each domain throughout the day. Measures active window focus, handles idle detection, and respects multi-window workflows.
-
-### Bonus: Career New Tab
-Every new tab surfaces a daily interview question from a curated bank of 30 questions across **SQL**, **Analytics**, and **Case Studies** — with a full answer on demand. Perfect for data analysts and PMs in job-search mode.
-
----
-
-## Tech Stack
-
-- **Manifest V3** Chrome Extension
-- **Vanilla JS** — no framework dependencies
-- **`chrome.storage.local`** — all data stays on your device
-- **`chrome.scripting`** — for content capture and focus mode enforcement
-- **`chrome.idle`** — for accurate time tracking
-- **Chart.js** — for the analytics dashboard
-
----
-
-## Installation (Developer Mode)
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/narmatha0303/FocusSense-Distraction-intelligence-career-engine-for-deep-work.git
-   ```
-2. Open Chrome and go to `chrome://extensions`
-3. Enable **Developer Mode** (top right toggle)
-4. Click **Load unpacked** and select the project folder
-5. Pin the FocusSense icon to your toolbar
-
----
-
-## Project Structure
-
-```
-focussense/
-├── manifest.json          # Extension config (MV3)
-├── background.js          # Service worker — core logic
-├── dashboard/
-│   ├── dashboard.html     # Main analytics UI
-│   └── dashboard.js       # Dashboard rendering & charts
-├── newtab/
-│   ├── newtab.html        # New tab override
-│   └── newtab.js          # Daily question bank (30 Q&As)
-├── popup/
-│   └── popup.js           # Extension popup
-└── chart.js               # Chart.js (bundled)
-```
-
----
-
-## Privacy
-
-All data is stored locally using `chrome.storage.local`. Nothing is sent to any server. The extension requires broad `<all_urls>` host permissions only to enable the content capture shortcut on any webpage.
-
----
-
-## Roadmap
-
-- [ ] Custom distraction site list (user-defined)
-- [ ] Weekly focus score and streaks
-- [ ] Export data as CSV
-- [ ] Pomodoro timer integration
-- [ ] Expanded question bank (Python, Statistics, Product Sense)
-
----
-
-## License
-
-MIT © Narmatha 2026
+**Narmatha Annadurai** — [Portfolio](https://codebasics.io/portfolio/Narmatha-Annadurai)
